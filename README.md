@@ -1,4 +1,10 @@
-# AWS Cross-account S3 Access
+# AWS Cross-Account S3 Access
+
+Cross-account access, commonly used for thirdy party if SSO is not available or not applicable.
+
+For third-parties it should always implement the `ExternalId` condition and help prevent the [confused deputy][1] problem.
+
+More on this in the [How to use external ID] documentation.
 
 <img src="cross-access.png" width=650 />
 
@@ -103,3 +109,6 @@ unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
 # Show that we are now executing commands as our Admin user again
 aws sts get-caller-identity
 ```
+
+[1]: https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html
+[2]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html
